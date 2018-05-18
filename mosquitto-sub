@@ -1,0 +1,22 @@
+#!/bin/sh /etc/rc.common
+# Example script
+# Copyright (C) 2007 OpenWrt.org
+
+START=82
+
+start() {
+        echo start
+        /etc/iot/mosquitto_sub.sh &
+}
+
+stop() {
+        echo stop
+    PIDS=$(ps | grep mosquitto_sub | grep -v grep | awk '{print $1}')
+    export PIDS
+    for i in ${PIDS}
+     do
+       echo $1
+       kill -9 $i
+    done
+}
+
