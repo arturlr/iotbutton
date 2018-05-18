@@ -1,0 +1,4 @@
+click,action,command
+single,shutdown internet,iptables -A
+double,enable internet,iptables -D
+long,reboot,reboot
