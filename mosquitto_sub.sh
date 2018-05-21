@@ -1,7 +1,7 @@
 #!/bin/sh
 p="mqttPipe"
 ([ ! -p "$p" ]) && mkfifo $p
-(mosquitto_sub --cert /etc/iot/aws.certificate.pem --key /etc/iot/aws.private.pem.key --cafile /etc/iot/root.cer -h a24m25nb2cfzbs.iot.us-west-2.amazonaws.com -p 8
+(mosquitto_sub --cert /etc/iot/aws.certificate.pem --key /etc/iot/aws.private.pem.key --cafile /etc/iot/root.cer -h your-endpoint.iot.us-west-2.amazonaws.com -p 8
 883 -q 1 -d -t inetbutton/all -v >$p 2>/dev/null) &
 PID=$!
 
